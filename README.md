@@ -1,6 +1,6 @@
-# _Pizza Shop_
+# _Address Book_
 
-#### _Site allows users to order a pizza from a fake pizzeria_
+#### _Site allows users to create a contact/address book_
 
 #### By _**Jesse Bryan**_
 
