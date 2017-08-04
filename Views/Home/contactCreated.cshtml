@@ -5,14 +5,18 @@
 <h2 class="headline">Contact Created!</h2>
 
 <h3>Name: @Model["contact"].GetName()</h3>
-<h3>Phone: @Model["contact"].GetPhone()</h3>
+<h4>Phone: @Model["contact"].GetPhone()</h4>
+<br>
 <p>@Model["address"].GetAddressType() Address:</p>
 <p>Street:@Model["address"].GetStreet()</p>
 <p>City:@Model["address"].GetCity()</p>
 <p>State:@Model["address"].GetState()</p>
 <p>Zip:@Model["address"].GetZip()</p>
 
-<div class="footer">
-  <p><a href="/contact/create" class="btn btn-info">Add Another Contact</a></p>
-  <p><a href="/" class="btn btn-default">Back To Home Page</a></p>
+<div class="row footer">
+  <div class="col-xs-6">
+    <p><a href="/" class="btn btn-default">Back To Home Page</a></p>
+  </div>
+  <div class="col-xs-6 right">
+    <p><a href="/contact/create" class="btn btn-info">Add Another Contact</a></p>
 </div>
