@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Add An Additional Address For @Model.GetName()</h1>
+
+<form action="/contact/@Model.GetId()" method="post">
+  <label for="address-type">Type of Address (business, home):</label>
+  <input type="text" id="address-type" name="address-type">
+
+  <label for="address-street">Street:</label>
+  <input type="text" id="address-street" name="address-street">
+
+  <label for="address-city">City:</label>
+  <input type="text" id="address-city" name="address-city">
+
+  <label for="address-state">State:</label>
+  <input type="text" id="address-state" name="address-state">
+
+  <label for="address-zip">Zip:</label>
+  <input type="text" id="address-zip" name="address-zip">
+
+  <button type="submit" class="btn btn-succes">Submit</button>
+</form>
+
+<p><a href="/">Back To Home Page</a></p>

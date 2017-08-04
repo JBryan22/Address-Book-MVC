@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>New Contact</h1>
+
+<h3>Fill Out The Form Below To Create A New Contact</h3>
+
+<form action="/contact/new" method="post">
+  <label for="contact-name">Name:</label>
+  <input type="text" id="contact-name" name="contact-name">
+
+  <label for="contact-phone">Phone Number:</label>
+  <input type="text" id="contact-phone" name="contact-phone">
+
+  <h4>Contact Address:</h4>
+
+  <label for="address-type">Type of Address (business, home):</label>
+  <input type="text" id="address-type" name="address-type">
+
+  <label for="address-street">Street:</label>
+  <input type="text" id="address-street" name="address-street">
+
+  <label for="address-city">City:</label>
+  <input type="text" id="address-city" name="address-city">
+
+  <label for="address-state">State:</label>
+  <input type="text" id="address-state" name="address-state">
+
+  <label for="address-zip">Zip:</label>
+  <input type="text" id="address-zip" name="address-zip">
+
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+<p><a href="contact/@contact.GetId()">Back to Detail Page</a></p>
+<p><a href="/">Back To Home Page</a></p>
