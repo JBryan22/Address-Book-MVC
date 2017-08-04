@@ -1,0 +1,30 @@
+/*body {
+  background-image: url("../img/footer_lodyas.png");
+}*/
+
+.container {
+  background-color: white;
+  padding:0;
+  /*border: 2px solid #00A6FB;*/
+  width:90%;
+}
+
+#home {
+  display:absolute;
+  top:58px;
+  left:5px;
+}
+
+.headline {
+  text-align: center;
+}
+
+header h1{
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+ul {
+  list-style-type: none;
+}

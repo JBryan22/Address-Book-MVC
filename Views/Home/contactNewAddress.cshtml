@@ -2,26 +2,26 @@
   Layout = "_Layout";
 }
 
-<h1>Add An Additional Address For @Model.GetName()</h1>
+<h2 class="headline">Add An Additional Address For @Model.GetName()</h2>
 
-<form action="/contact/@Model.GetId()" method="post">
+<form action="/contact/@Model.GetId()" method="post" class="form-group">
   <label for="address-type">Type of Address (business, home):</label>
-  <input type="text" id="address-type" name="address-type">
+  <input type="text" id="address-type" name="address-type" class="form-control">
 
   <label for="address-street">Street:</label>
-  <input type="text" id="address-street" name="address-street">
+  <input type="text" id="address-street" name="address-street" class="form-control">
 
   <label for="address-city">City:</label>
-  <input type="text" id="address-city" name="address-city">
+  <input type="text" id="address-city" name="address-city" class="form-control">
 
   <label for="address-state">State:</label>
-  <input type="text" id="address-state" name="address-state">
+  <input type="text" id="address-state" name="address-state" class="form-control">
 
   <label for="address-zip">Zip:</label>
-  <input type="text" id="address-zip" name="address-zip">
+  <input type="text" id="address-zip" name="address-zip" class="form-control">
 
-  <button type="submit" class="btn btn-succes">Submit</button>
+  <button type="submit" class="btn">Submit</button>
 </form>
 
-<p><a href="contact/@Model.GetId()">Back to Detail Page</a></p>
-<p><a href="/">Back To Home Page</a></p>
+<p><a href="/contact/@Model.GetId()">Back to Detail Page</a></p>
+@* <p><a href="/" class="btn btn-info">Back To Home Page</a></p> *@

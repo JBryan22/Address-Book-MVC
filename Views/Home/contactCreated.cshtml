@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-<h1>Contact Created!</h1>
+<h2 class="headline">Contact Created!</h2>
 
 <h3>Name: @Model["contact"].GetName()</h3>
 <h3>Phone: @Model["contact"].GetPhone()</h3>
@@ -12,5 +12,5 @@
 <p>State:@Model["address"].GetState()</p>
 <p>Zip:@Model["address"].GetZip()</p>
 
-<p><a href="/contact/create">Add Another Contact</a></p>
-<p><a href="/">Back To Home Page</a></p>
+<p><a href="/contact/create" class="btn btn-default">Add Another Contact</a></p>
+<p><a href="/" class="btn btn-info">Back To Home Page</a></p>

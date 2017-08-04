@@ -2,35 +2,34 @@
   Layout = "_Layout";
 }
 
-<h1>New Contact</h1>
+<h2 class="headline">New Contact</h2>
 
 <h3>Fill Out The Form Below To Create A New Contact</h3>
 
-<form action="/contact/new" method="post">
+<form action="/contact/new" method="post" class="form-group">
   <label for="contact-name">Name:</label>
-  <input type="text" id="contact-name" name="contact-name">
+  <input type="text" id="contact-name" name="contact-name" class="form-control">
 
   <label for="contact-phone">Phone Number:</label>
-  <input type="text" id="contact-phone" name="contact-phone">
+  <input type="text" id="contact-phone" name="contact-phone" class="form-control">
 
   <h4>Contact Address:</h4>
-
   <label for="address-type">Type of Address (business, home):</label>
-  <input type="text" id="address-type" name="address-type">
+  <input type="text" id="address-type" name="address-type" class="form-control">
 
   <label for="address-street">Street:</label>
-  <input type="text" id="address-street" name="address-street">
+  <input type="text" id="address-street" name="address-street" class="form-control">
 
   <label for="address-city">City:</label>
-  <input type="text" id="address-city" name="address-city">
+  <input type="text" id="address-city" name="address-city" class="form-control">
 
   <label for="address-state">State:</label>
-  <input type="text" id="address-state" name="address-state">
+  <input type="text" id="address-state" name="address-state" class="form-control">
 
   <label for="address-zip">Zip:</label>
-  <input type="text" id="address-zip" name="address-zip">
+  <input type="text" id="address-zip" name="address-zip" class="form-control">
 
-  <button class="btn btn-success" type="submit">Submit</button>
+  <button class="btn" type="submit">Submit</button>
 </form>
 
-<p><a href="/">Back To Home Page</a></p>
+@* <p><a href="/" class="btn btn-info">Back To Home Page</a></p> *@

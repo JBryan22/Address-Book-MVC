@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-<h1>@Model["contact"].GetName() Details:</h1>
+<h2 class="headline">@Model["contact"].GetName() Details:</h2>
 
 <p>Phone Number: @Model["contact"].GetPhone()</p>
 
@@ -18,5 +18,5 @@
   <br>
 }
 
-<p><a href='/contact/@Model["contact"].GetId()/address'>Add Additional Address</a></p>
-<p><a href="/">Back To Home Page</a></p>
+<p><a href='/contact/@Model["contact"].GetId()/address' class="btn btn-default">Add Additional Address</a></p>
+<p><a href="/" class="btn btn-info">Back To Home Page</a></p>
