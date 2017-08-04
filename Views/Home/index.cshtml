@@ -1,30 +1,41 @@
 @{
   Layout = "_Layout";
 }
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="headline">Your Contacts</h2>
+    <h4 class="headline">Click On A Contact To View Details</h4>
 
-<h2 class="headline">Your Contacts</h2>
-<h4>Click On A Contact To View Details</h4>
+    @if (@Model.Count == 0)
+    {
+      <p class="headline">You currently have no contacts. Click below to add a new contact to your addres book!</p>
+    }
 
-@if (@Model.Count == 0)
-{
-  <p>You currently have no contacts. Click below to add a new contact to your addres book!</p>
-}
+    <ul class="list-group">
+      @foreach (var contact in @Model)
+      {
+        <a class="contact-list list-group-item" href="contact/@contact.GetId()">@contact.GetName()
+          <li>
+            <form action="/contact/remove/@contact.GetId()" method="post" class="remove">
+              <button class="btn btn-danger btn-xs remove glyphicon glyphicon-remove" type="submit"></button>
+            </form>
+          </li>
+        </a>
+      }
+    </ul>
+  </div>
+</div>
 
-<ul>
-  @foreach (var contact in @Model)
-  {
-    <li><a href="contact/@contact.GetId()">@contact.GetName()</a></li>
-    <form action="/contact/remove/@contact.GetId()" method="post">
-      <button class="btn btn-danger btn-sm" type="submit">Remove This Contact</button>
-    </form>
-  }
-</ul>
-
-@if (@Model.Count != 0)
-{
-  <form action="/contact/clear" method="post">
-    <button class="btn btn-danger btn-sm" type="submit">Clear All Contacts</button>
-  </form>
-}
-
-<p><a href="/contact/create" class="btn btn-success btn-sm">Add A New Contact</a></p>
+<div class="row footer">
+  <div class="col-md-6 left">
+    <p><a href="/contact/create" class="btn btn-success btn-sm">Add A New Contact</a></p>
+  </div>
+  <div class="col-md-6 right">
+    @if (@Model.Count != 0)
+    {
+      <form action="/contact/clear" method="post">
+        <button class="btn btn-danger btn-sm" type="submit">Clear All Contacts</button>
+      </form>
+    }
+  </div>
+</div>
