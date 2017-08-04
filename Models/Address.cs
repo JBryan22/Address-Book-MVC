@@ -13,8 +13,9 @@ namespace AddressBook.Models
 
     private static List<Address> _addressList = new List<Address>{};
 
-    public Address(street, city, state, zip)
+    public Address(string type, string street, string city, string state, string zip)
     {
+      _type = type;
       _street = street;
       _city = city;
       _state = state;
@@ -23,12 +24,12 @@ namespace AddressBook.Models
       _id = _addressList.Count;
     }
 
-    public string GetType()
+    public string GetAddressType()
     {
       return _type;
     }
 
-    public void SetType(string newType)
+    public void SetAddressType(string newType)
     {
       _type = newType;
     }
@@ -73,7 +74,7 @@ namespace AddressBook.Models
       _zip = newZip;
     }
 
-    public string GetId()
+    public int GetId()
     {
       return _id;
     }
@@ -85,17 +86,17 @@ namespace AddressBook.Models
 
     public static void RemoveSpecific(int id)
     {
-      _contactList.RemoveAt(id - 1);
+      _addressList.RemoveAt(id - 1);
 
-      for (int index = _contactList.Count; index > 0; index--)
+      for (int index = _addressList.Count; index > 0; index--)
       {
-        _contactList[index - 1].SetId(index);
+        _addressList[index - 1].SetId(index);
       }
     }
 
-    public static Contact Find(int searchId)
+    public static Address Find(int searchId)
     {
-      return _contactList[searchId - 1];
+      return _addressList[searchId - 1];
     }
   }
 }

@@ -22,21 +22,67 @@ namespace AddressBook.Controllers
     [HttpGet("/contact/{id}")]
     public ActionResult ContactDetail(int id)
     {
-      Contact myContact = Contact.Find(id);
+      Dictionary<string, object> model = new Dictionary<string, object>{};
 
-      return View(myContact);
+      Contact myContact = Contact.Find(id);
+      List<Address> addresses = myContact.GetAddresses();
+
+      model.Add("contact", myContact);
+      model.Add("addresses", addresses);
+
+      return View(model);
+    }
+
+    [HttpGet("contact/{id}/address")]
+    public ActionResult ContactNewAddress(int id)
+    {
+      Contact currentContact = Contact.Find(id);
+
+      return View(currentContact);
+    }
+
+    [HttpPost("contact/{id}")]
+    public ActionResult ContactNewAddressPost(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>{};
+
+      string type = Request.Form["address-type"];
+      string street = Request.Form["address-street"];
+      string city = Request.Form["address-city"];
+      string state = Request.Form["address-state"];
+      string zip = Request.Form["address-zip"];
+
+      Contact currentContact = Contact.Find(id);
+      Address newAddress = new Address(type, street, city, state, zip);
+      currentContact.AddAddress(newAddress);
+
+      model.Add("contact", currentContact);
+      model.Add("addresses", currentContact.GetAddresses());
+
+      return View("contactDetail", model);
+
     }
 
     [HttpPost("/contact/new")]
     public ActionResult ContactCreated()
     {
+      Dictionary<string, object> model = new Dictionary<string, object>{};
+
       string name = Request.Form["contact-name"];
       string phone = Request.Form["contact-phone"];
-      string address = Request.Form["contact-address"];
+      string type = Request.Form["address-type"];
+      string street = Request.Form["address-street"];
+      string city = Request.Form["address-city"];
+      string state = Request.Form["address-state"];
+      string zip = Request.Form["address-zip"];
 
-      Contact newContact = new Contact(name, phone, address);
+      Address newAddress = new Address(type, street, city, state, zip);
+      Contact newContact = new Contact(name, phone, newAddress);
 
-      return View(newContact);
+      model.Add("address", newAddress);
+      model.Add("contact", newContact);
+
+      return View(model);
     }
 
     [HttpPost("/contact/clear")]
@@ -48,11 +94,13 @@ namespace AddressBook.Controllers
     }
 
     [HttpPost("/contact/remove/{id}")]
-    public ActionResult ContactRemove(int id)
+    public ActionResult ContactRemoved(int id)
     {
       Contact.RemoveSpecific(id);
 
-      return View("index", Contact.GetAllContacts());
+      return View(Contact.GetAllContacts());
     }
+
+
   }
 }

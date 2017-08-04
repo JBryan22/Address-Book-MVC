@@ -2,10 +2,21 @@
   Layout = "_Layout";
 }
 
-<h1>@Model.GetName() Details:</h1>
+<h1>@Model["contact"].GetName() Details:</h1>
 
-<p>@Model.GetPhone()</p>
-<p>@Model.GetAddress()</p>
+<p>Phone Number: @Model["contact"].GetPhone()</p>
 
-<p><a href="/contact/@Model.GetId()/address">Add Additional Address</a></p>
+<h3>Addresses:</h3>
+
+@foreach (var address in @Model["addresses"])
+{
+  <h4>@address.GetAddressType() Address:</h4>
+  <p>Street:@address.GetStreet()</p>
+  <p>City:@address.GetCity()</p>
+  <p>State:@address.GetState()</p>
+  <p>Zip:@address.GetZip()</p>
+  <br>
+}
+
+<p><a href='/contact/@Model["contact"].GetId()/address'>Add Additional Address</a></p>
 <p><a href="/">Back To Home Page</a></p>

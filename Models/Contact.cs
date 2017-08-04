@@ -11,11 +11,11 @@ namespace AddressBook.Models
 
     private static List<Contact> _contactList = new List<Contact>{};
 
-    public Contact(string name, string phone, string address)
+    public Contact(string name, string phone, Address address)
     {
       _name = name;
       _phone = phone;
-      _address = address;
+      _addresses = new List<Address>{address};
 
       _contactList.Add(this);
       _id = _contactList.Count;
@@ -46,7 +46,7 @@ namespace AddressBook.Models
       return _addresses;
     }
 
-    public void SetAddress(Address newAddress)
+    public void AddAddress(Address newAddress)
     {
       _addresses.Add(newAddress);
     }
