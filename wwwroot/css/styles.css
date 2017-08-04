@@ -1,9 +1,8 @@
-/*body {
-  background-image: url("../img/footer_lodyas.png");
-}*/
+body {
+  background-image: url("../img/concrete_seamless.png");
+}
 
 .container {
-  background-color: white;
   padding:0;
   /*border: 2px solid #00A6FB;*/
   width:90%;
